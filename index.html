@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Zikr
+    </title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Style Flipdown -->
+    <link
+      href="https://pbutcher.uk/flipdown/css/flipdown/flipdown.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #1a1e21;
+        color: white;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        overflow: hidden;
+        position: relative;
+      }
+      .video-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+        /* Make the video loop indefinitely */
+      }
+      .btn {
+        position: relative;
+        display: inline-block;
+        margin: 15px;
+        padding: 12px 27px;
+        text-align: center;
+        font-size: 16px;
+        letter-spacing: 1px;
+        text-decoration: none;
+        color: #ffffff;
+        background: rgba(0, 0, 0, 0.2);
+        border: 1px solid #867157;
+        cursor: pointer;
+        transition: ease-out 0.5s;
+        -webkit-transition: ease-out 0.5s;
+        -moz-transition: ease-out 0.5s;
+        /* backdrop-filter: blur(150px); */
+        /* border-radius: 8px; */
+      }
+      .btn.btn-border-4::after,
+      .btn.btn-border-4::before {
+        position: absolute;
+        content: "";
+        width: 0;
+        height: 0;
+        transition: 0.5s;
+      }
+      .btn.btn-border-4::after {
+        top: -9px;
+        left: -9px;
+        border-top: 3px solid transparent;
+        border-left: 3px solid transparent;
+      }
+      .btn.btn-border-4::before {
+        bottom: -9px;
+        right: -9px;
+        border-bottom: 3px solid transparent;
+        border-right: 3px solid transparent;
+      }
+      .btn.btn-border-4:hover {
+        color: #ffffff;
+        background: rgba(0, 0, 0, 0.3);
+      }
+      .btn.btn-border-4:hover::after,
+      .btn.btn-border-4:hover::before {
+        width: calc(100% + 15px);
+        height: calc(100% + 15px);
+        border-color: #867157;
+      }
+      .btn.btn-border-4:active {
+        transform: scale(0.95);
+        background: rgba(0, 0, 0, 0.4);
+      }
+      .logo {
+        width: 100px;
+        height: auto;
+        margin-bottom: 20px;
+      }
+      .hidden {
+        display: none;
+      }
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #867157bc;
+        z-index: 1;
+        display: none;
+      }
+      .count-down {
+        width: 550px;
+        height: 378px;
+        margin: auto;
+        padding: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        color: white;
+      }
+      .count-down .flipdown {
+        margin: auto;
+        width: 600px;
+        margin-top: 30px;
+      }
+      .count-down h1 {
+        text-align: center;
+        font-weight: 400;
+        font-size: 3em;
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .logo {
+        position: absolute;
+        top: 15px; /* Adjust as needed */
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+        width: 2.5%;
+        height: 10%;
+      }
+      .top-left {
+        position: absolute;
+        top: 20px; /* Adjust as needed */
+        left: 30px; /* Adjust as needed */
+        color: white; /* Adjust text color for readability */
+        font-size: 3em; /* Adjust font size as needed */
+        font-weight: bold;
+        z-index: 2;
+      }
+      @media (max-width: 550px) {
+        .count-down {
+          width: 100%;
+          height: 362px;
+        }
+        .count-down h1 {
+          font-size: 2.5em;
+        }
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://pbutcher.uk/flipdown/css/flipdown/flipdown.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id='heading'class="top-left hidden">Zikr</div>
+    <img id="logo" src="logo-white.png" alt="Your Logo" class="logo hidden" />
+    <video
+      id="background-video"
+      class="video-bg"
+      autoplay
+      muted
+      playsinline
+      loop
+    >
+      <source src="ComingSoon.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <!-- <img src="your-logo-url.png" alt="Logo" class="logo"> -->
+    <a id="play-button" class="btn btn-border-4" href="#" onclick="playVideo()"
+      >Let’s Begin</a
+    >
+    <div id="overlay" class="overlay"></div>
+    <div id="countdown-timer" class="count-down hidden">
+      <h1>Countdown Timer</h1>
+      <div class="flipdown" id="flipdown"></div>
+    </div>
+
+    <script src="https://pbutcher.uk/flipdown/js/flipdown/flipdown.js"></script>
+    <script>
+      window.onload = function () {
+        var video = document.getElementById("background-video");
+        video.play();
+        setTimeout(function () {
+          video.pause();
+        }, 200);
+      };
+
+      function playVideo() {
+        var video = document.getElementById("background-video");
+        var button = document.getElementById("play-button");
+        var overlay = document.getElementById("overlay");
+        var countdown = document.getElementById("countdown-timer");
+        var heading = document.getElementById("heading");
+        var logo = document.getElementById("logo");
+
+        video.play();
+        button.classList.add("hidden");
+        setTimeout(function () {
+          overlay.style.display = "block";
+          setTimeout(function () {
+            countdown.classList.remove("hidden");
+            logo.classList.remove("hidden");
+            heading.classList.remove("hidden");
+            // overlay.classList.add("visible");
+            countdown.classList.add("visible");
+            logo.classList.add("visible");
+            heading.classList.add("visible");
+          }, 0); // Show countdown 1 second after overlay
+        }, 7500); // Show overlay 10 seconds after button click
+
+        // Initialize FlipDown
+        var toDayFromNow =
+          new Date("Sep 15, 2024 23:59:59").getTime() / 1000 +
+          3600 / 60 / 60 / 24 -
+          1;
+        var flipdown = new FlipDown(toDayFromNow).start().ifEnded(() => {
+          document.querySelector(
+            ".flipdown"
+          ).innerHTML = `<h2>Timer is ended</h2>`;
+        });
+      }
+    </script>
+  </body>
+</html>
